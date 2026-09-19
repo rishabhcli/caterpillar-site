@@ -2,6 +2,8 @@
 
 An independent, unofficial redesign concept for Caterpillar: industrial typography, cinematic AI-imagined machinery, a responsive editorial interface, a source-backed guide, and real agent-operable interactions.
 
+**Live demo: https://caterpillar-site-eta.vercel.app**
+
 ## Run
 
 ```sh
