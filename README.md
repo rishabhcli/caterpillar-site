@@ -37,6 +37,8 @@ npm run build
 npm start                 # Production site + optional AI at http://127.0.0.1:4173
 ```
 
+Deploying to Vercel: `vercel.json` is committed, the static build is served from `dist/`, and `api/assistant/` exposes the same guide endpoint as a function. Set `OPENAI_API_KEY` and `OPENAI_MODEL` in the Vercel project to enable live AI; without them the deployed site serves local retrieval only.
+
 See [docs/AI.md](docs/AI.md) for configuration and deployment limits. These local servers are not public-production security hardening or a managed AI service. Live provider output needs configured credentials and separate verification.
 
 ## Agent access

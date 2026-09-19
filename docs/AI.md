@@ -21,7 +21,15 @@ Never use a `VITE_` prefix for secrets. The API key remains in the Node process.
 - Server uses Responses API with `store: false`. This is not a promise of zero provider retention; your OpenAI project and service policies apply.
 - Provider errors, missing configuration, and unsupported models fall back to local retrieval in the UI. Live generation is constrained by instructions to supplied source summaries, but generated answers can still be wrong. Official linked Caterpillar resources remain authoritative.
 
-This is a local/demo server, **not** an authenticated public AI gateway. Before an Internet deployment, add authenticated access, trusted-origin configuration, distributed rate/budget limits, monitoring, and deployment-specific security review. Do not simply expose the port.
+## Deploying to Vercel
+
+`vercel.json` builds the site with `npm run build`, serves `dist/`, and exposes two functions in `api/assistant/` that mount the same `createAssistantMiddleware` with `hosted: true`. The hosted profile replaces the loopback check with https same-origin against the request's own Host, requires a browser `Origin` or `Sec-Fetch-Site: same-origin` signal, and keys the rate window on the first `x-forwarded-for` address instead of the proxy socket. Set `ASSISTANT_ALLOWED_HOSTS` (comma-separated hostnames) to pin the deployment to known domains; unset, any Host is accepted but only same-origin callers are served.
+
+Live AI stays off until **both** `OPENAI_API_KEY` and `OPENAI_MODEL` are set as Vercel environment variables. Without them the deployed `/api/assistant/status` reports `{ "available": false }` and the site serves local retrieval only. `NODEJS_HELPERS=0` in `vercel.json` keeps Vercel from pre-parsing request bodies, so the function reads the same stream the local servers do.
+
+Serverless limits worth stating plainly: the 12-requests-per-minute window and the four-in-flight cap are per function instance held in memory, so concurrent instances multiply both — they throttle accidents, not a determined caller. The endpoint is unauthenticated; anyone who finds the URL spends the configured provider quota. `maxDuration` is 30s against a 25s upstream timeout.
+
+This is a local/demo and concept-deployment server, **not** an authenticated public AI gateway. Before treating an Internet deployment as production, add authenticated access, distributed rate/budget limits, monitoring, and deployment-specific security review. Do not simply expose the port.
 
 ## Source and verification
 

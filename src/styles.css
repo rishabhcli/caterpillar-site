@@ -95,8 +95,7 @@ h1,h2,h3,.display{font-weight:600;font-stretch:118%;letter-spacing:-.028em;line-
 .section{position:relative;display:grid;grid-template-columns:[rail] var(--rail) [main] repeat(12,minmax(0,1fr));column-gap:var(--col-gap);padding:var(--section-pad) var(--gutter);background:var(--surface);color:var(--fg)}
 .section::before{content:'';position:absolute;top:0;bottom:0;left:calc(var(--gutter) + var(--rail));width:1px;background:var(--rule)}
 .section>*{grid-column:main/-1;min-width:0}
-.section>.rail{grid-column:rail;padding-right:var(--col-gap)}
-.rail{display:flex;flex-direction:column;gap:10px;font-size:var(--t-micro);color:var(--fg-dim);line-height:1.45}
+.rail{grid-column:rail;padding-right:var(--col-gap);display:flex;flex-direction:column;gap:10px;font-size:var(--t-micro);color:var(--fg-dim);line-height:1.45}
 .rail-index{font-size:var(--t-micro);font-weight:700;color:var(--fg)}
 .rail-index::after{content:'';display:block;width:22px;height:1px;background:var(--signal);margin-top:8px}
 .section-heading{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:var(--col-gap);align-items:end;margin-bottom:clamp(34px,4vw,58px)}
@@ -413,7 +412,7 @@ h1,h2,h3,.display{font-weight:600;font-stretch:118%;letter-spacing:-.028em;line-
   .utility-bar>div>button{display:none}
   .section,.hero,.guide-bar,.sustainability-section,.careers-banner,.brands-section{grid-template-columns:repeat(6,minmax(0,1fr));column-gap:14px}
   .section::before,.hero::before,.guide-bar::before,.sustainability-section::before,.careers-banner::before,.brands-section::before{display:none}
-  .section>.rail,.hero-rail,.guide-bar-label,.brands-heading{grid-column:1/-1;flex-direction:row;align-items:center;gap:10px;padding:0 0 18px;flex-wrap:wrap}
+  .rail,.hero-rail,.guide-bar-label,.brands-heading{grid-column:1/-1;flex-direction:row;align-items:center;gap:10px;padding:0 0 18px;flex-wrap:wrap}
   .rail-index::after{display:none}
   .section>*,.brand-row,.hero-index,.sustainability-disclosure{grid-column:1/-1}
   .hero{padding:32px var(--gutter) 0;gap:26px 14px}

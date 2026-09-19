@@ -1,0 +1,9 @@
+artifacts/
+docs/
+tests/
+tools/
+playwright-report/
+test-results/
+.firecrawl/
+.mcp-browser/
+playwright.config.ts

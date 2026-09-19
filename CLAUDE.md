@@ -54,14 +54,14 @@ The Vite plugin in `vite.config.ts` emits this corpus to `dist/knowledge.json` a
 
 ### Optional AI adapter
 
-`server/assistant.mjs` exports `createAssistantMiddleware({ content, env, fetchImpl })`, mounted in **three** hosts: the Vite dev server, the Vite preview server (both via `vite.config.ts`), and the production `server/start.mjs`. It handles `GET /api/assistant/status` and `POST /api/assistant` only.
+`server/assistant.mjs` exports `createAssistantMiddleware({ content, env, fetchImpl })`, mounted in **four** hosts: the Vite dev server, the Vite preview server (both via `vite.config.ts`), the production `server/start.mjs`, and the Vercel functions in `api/assistant/`. It handles `GET /api/assistant/status` and `POST /api/assistant` only.
 
 Invariants worth preserving when touching it:
 
 - Availability requires **both** `OPENAI_API_KEY` and `OPENAI_MODEL`; no model is silently defaulted.
 - The client sends `sourceIds`, never source text. The server resolves IDs against its own corpus and discards anything else the caller supplies (a test asserts injected `sourceText` never reaches the provider).
 - Secrets stay in the Node process — never introduce a `VITE_`-prefixed key. `vite.config.ts` is the only place unprefixed env is read.
-- Loopback host + same-origin checks, no CORS, 16 KiB body cap, 1,200-char questions, ≤6 sources, 12 req/min/IP, ≤4 in flight, 25s upstream timeout, `store: false`, sanitized 502s that never forward provider bodies.
+- Loopback host + same-origin checks by default. `hosted: true` (used only by the Vercel functions) swaps that for https same-origin against the request's own Host, requires a browser `Origin`/`Sec-Fetch-Site: same-origin` signal, keys rate limits on `x-forwarded-for`, and accepts an optional `ASSISTANT_ALLOWED_HOSTS` pin. Everything else is shared: no CORS, 16 KiB body cap, 1,200-char questions, ≤6 sources, 12 req/min/IP, ≤4 in flight, 25s upstream timeout, `store: false`, sanitized 502s that never forward provider bodies.
 - Any failure path must degrade to local retrieval in the UI, not to an error state. `askGuide` in the store implements that fallback and attaches a `notice`.
 
 ### UI
