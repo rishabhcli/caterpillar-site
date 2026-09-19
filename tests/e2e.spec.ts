@@ -56,7 +56,9 @@ test('guide gives locally sourced answers without pretending to be live AI', asy
   await expect(page.getByRole('dialog')).toHaveAccessibleName('Cat Intelligence');
   await expect(page.locator('.guide-mode')).toContainText('LOCAL CONTENT RETRIEVAL');
   await expect(page.locator('.message.assistant')).toBeVisible();
-  await expect(page.locator('.answer-sources button')).toHaveCount(3);
+  // Only genuinely relevant matches are cited now; the generic company entry is gated out by relevance.
+  await expect(page.locator('.answer-sources button')).toHaveCount(2);
+  await expect(page.locator('.guide-actions button').first()).toBeVisible();
   await expect(page.locator('.guide-compose')).toContainText('not a generative AI model');
   await page.locator('.answer-sources button').first().click();
   await expect(page.getByRole('dialog')).toHaveAccessibleName('Inside Caterpillar');

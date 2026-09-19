@@ -2,7 +2,7 @@
 import { mkdtemp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { AGENT_INSTRUCTIONS } from './instructions.mjs';
+import { AGENT_INSTRUCTIONS, BASE_INSTRUCTIONS } from './instructions.mjs';
 
 const RUN_TIMEOUT_MS = 60_000;
 
@@ -42,17 +42,18 @@ function customTools(tools, callTool) {
 
 export async function respond({ query, sources, env, tools = [], callTool, onDelta, conversation = {}, agentFactory = defaultAgentFactory }) {
   const model = modelSelection(env);
+  const INSTRUCTIONS = tools.length ? AGENT_INSTRUCTIONS : BASE_INSTRUCTIONS;
   const message = `${JSON.stringify({ question: query, startingSources: sources })}\n\nAnswer the question above for the visitor.`;
   // systemPrompt is a server-gated capability. If this account lacks it, fall back to carrying the same rules in the message.
   const create = async withSystemPrompt => agentFactory({
     apiKey: env.CURSOR_API_KEY.trim(), model, name: 'Caterpillar concept site guide',
     tools: ['mcp'], disallowedTools: ['task'],
-    ...(withSystemPrompt ? { systemPrompt: AGENT_INSTRUCTIONS } : {}),
+    ...(withSystemPrompt ? { systemPrompt: INSTRUCTIONS } : {}),
     local: { cwd: await scratchDir(), settingSources: [], customTools: customTools(tools, callTool) },
   });
   const send = async agent => {
     let streamed = '';
-    const run = await agent.send(agent.__catPrompted ? message : `${AGENT_INSTRUCTIONS}\n\n${message}`, {
+    const run = await agent.send(agent.__catPrompted ? message : `${INSTRUCTIONS}\n\n${message}`, {
       onDelta: ({ update }) => { if (update?.type === 'text-delta' && typeof update.text === 'string') { streamed += update.text; onDelta?.(update.text); } },
     });
     const timer = setTimeout(() => { void run.cancel().catch(() => {}); }, RUN_TIMEOUT_MS);
@@ -72,8 +73,9 @@ export async function respond({ query, sources, env, tools = [], callTool, onDel
     conversation.agent = agent;
     return answer;
   } catch (error) {
-    const gated = /system[-_ ]?prompt/i.test(String(error?.message || ''));
-    if (!gated || !agent.__catPrompted) { conversation.agent = undefined; try { agent.close?.(); } catch { /* already closed */ } throw error; }
+    // A gated systemPrompt can surface either as a thrown message or as a plain run status of 'error',
+    // so any first-attempt failure on a prompted agent retries once with the rules carried in the message.
+    if (!agent.__catPrompted) { conversation.agent = undefined; try { agent.close?.(); } catch { /* already closed */ } throw error; }
     try { agent.close?.(); } catch { /* already closed */ }
     const retried = await create(false);
     retried.__catPrompted = false;

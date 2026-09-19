@@ -1,5 +1,5 @@
 import directory from './directory.json';
-import { searchCorpus } from '../shared/search.mjs';
+import { searchCorpus, searchScored } from '../shared/search.mjs';
 
 export type Content = { id: string; title: string; category: string; summary: string; url: string; keywords: string; image?: string; date?: string };
 const company = 'https://www.caterpillar.com/en/';
@@ -32,8 +32,33 @@ export const featured: Content[] = [
 const primary = [...industries, ...stories, ...featured];
 export const content: Content[] = [...primary, ...directory.filter(d => !primary.some(p => p.url === d.url))];
 export function searchContent(query: string, limit = 8): Content[] { return searchCorpus(content, query, limit, featured); }
+export type GuideAction = { kind: 'navigate' | 'filter' | 'article' | 'save' | 'directory'; value: string; label: string };
+const sectionFor: Record<string, string> = { Industries: 'industries', Innovation: 'innovation', Autonomy: 'news', Technology: 'news', 'Our people': 'news', Sustainability: 'sustainability', Careers: 'careers', Company: 'company', Brands: 'brands' };
+const sectionLabel: Record<string, string> = { industries: 'the industries', innovation: 'innovation', news: 'news & stories', sustainability: 'sustainability', careers: 'careers', company: 'the company story', brands: 'the brand family' };
+
+/** Next steps the guide can actually perform, derived from the top match. Each one maps to a store function the UI buttons already call. */
+function actionsFor(top: Content): GuideAction[] {
+  const out: GuideAction[] = [];
+  const industry = industries.find(i => i.id === top.id);
+  if (industry) out.push({ kind: 'filter', value: industry.id, label: `Show only ${industry.label}` });
+  const section = sectionFor[top.category];
+  if (section && !industry) out.push({ kind: 'navigate', value: section, label: `Take me to ${sectionLabel[section]}` });
+  out.push({ kind: 'article', value: top.id, label: 'Open the details' });
+  out.push({ kind: 'save', value: top.id, label: 'Save for later' });
+  return out.slice(0, 3);
+}
+
 export function localAnswer(query: string) {
-  const matches = searchContent(query, 3);
-  if (!matches.length) return { text: 'I couldn’t find a reliable match in this site’s content. Try construction, autonomous mining, sustainability, careers, or investors. For product specifications, pricing, or current availability, use an official Cat dealer.', sources: [] as Content[], mode: 'local' as const };
-  return { text: matches.map(m => m.summary).join('\n\n'), sources: matches, mode: 'local' as const };
+  const scored = searchScored(content, query, 4, featured);
+  if (!scored.length) return { text: 'I couldn\u2019t find a reliable match in this site\u2019s content. Try construction, autonomous mining, sustainability, careers, or investors. For product specifications, pricing, or current availability, use an official Cat dealer.', sources: [] as Content[], actions: [] as GuideAction[], mode: 'local' as const };
+  // Score 0 means nothing matched and these are generic starting points; say so rather than dressing them up as an answer.
+  const best = scored[0].score;
+  const matches = (best === 0 ? scored.slice(0, 3) : scored.filter(r => r.score >= Math.max(2, best * 0.4)).slice(0, 3)).map(r => r.item);
+  const lead = best === 0
+    ? 'I couldn\u2019t pin that to one topic, so here are strong places to start.'
+    : matches.length > 1
+      ? `Here\u2019s what this site covers on that \u2014 closest first.`
+      : 'Here\u2019s the one part of this site that covers that.';
+  const body = matches.map(m => `${m.title}\n${m.summary}`).join('\n\n');
+  return { text: `${lead}\n\n${body}`, sources: matches, actions: actionsFor(matches[0]), mode: 'local' as const };
 }

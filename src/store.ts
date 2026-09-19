@@ -1,11 +1,11 @@
 import { useSyncExternalStore } from 'react';
 import { content, industries, localAnswer, searchContent } from './content';
-import type { Content } from './content';
+import type { Content, GuideAction } from './content';
 
 export type Section = 'home' | 'industries' | 'innovation' | 'company' | 'sustainability' | 'news' | 'careers' | 'brands';
 export type Filter = 'all' | 'construction' | 'mining' | 'energy';
 export type Modal = null | 'search' | 'guide' | 'directory' | 'article' | 'shortlist' | 'agent';
-export type Message = { id: number; role: 'user' | 'assistant'; text: string; sources?: Content[]; mode?: 'local' | 'ai'; notice?: string };
+export type Message = { id: number; role: 'user' | 'assistant'; text: string; sources?: Content[]; actions?: GuideAction[]; mode?: 'local' | 'ai'; notice?: string };
 type State = { filter: Filter; section: Section; modal: Modal; directoryCategory: string; articleId: string | null; shortlist: string[]; messages: Message[]; busy: boolean; agentStatus: string; lastAction: string; storageAvailable: boolean; aiAvailable: boolean; aiConsent: boolean };
 const listeners = new Set<() => void>();
 let initialSaved: string[] = [], storageAvailable = true;
@@ -37,7 +37,7 @@ export async function askGuide(query: string) {
   if (!q || q.length > 1200) throw new Error('Ask a question between 1 and 1,200 characters.');
   update({ modal: 'guide', busy: true, messages: [...state.messages, { id: Date.now(), role: 'user', text: q }] });
   const fallback = localAnswer(q);
-  let answer: { text: string; sources: Content[]; mode: 'local' | 'ai'; notice?: string } = fallback;
+  let answer: { text: string; sources: Content[]; actions: GuideAction[]; mode: 'local' | 'ai'; notice?: string } = fallback;
   try {
     if (state.aiAvailable && state.aiConsent) {
       const response = await fetch('/api/assistant', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: q, sourceIds: fallback.sources.map(s => s.id) }), signal: AbortSignal.timeout(30000) });
@@ -49,6 +49,14 @@ export async function askGuide(query: string) {
   } catch { answer = { ...fallback, notice: 'Live AI is unavailable. Here are matching site resources instead.' }; }
   finally { update({ busy: false, messages: [...state.messages, { id: Date.now()+1, role: 'assistant' as const, ...answer }].slice(-30), lastAction: 'Guide response ready' }); }
   return answer;
+}
+/** Runs a guide follow-up through the same store functions the UI buttons call. No parallel code path. */
+export function runGuideAction(action: GuideAction) {
+  if (action.kind === 'navigate') navigate(action.value as Section);
+  else if (action.kind === 'filter') { filterIndustries(action.value as Filter); navigate('industries'); }
+  else if (action.kind === 'article') openArticle(action.value);
+  else if (action.kind === 'directory') openDirectory(action.value);
+  else if (action.kind === 'save') saveContent(action.value, !state.shortlist.includes(action.value));
 }
 export const publicState = () => ({ section: state.section, industryFilter: state.filter, visibleIndustries: industries.filter(i => state.filter === 'all' || i.id === state.filter).map(i => i.id), openPanel: state.modal, shortlist: state.shortlist, assistantMode: state.aiAvailable && state.aiConsent ? 'ai' : 'local-retrieval', nativeStatus: state.agentStatus, lastAction: state.lastAction, conceptYear: 2028, contentSnapshot: '2026-09-18' });
 export { searchContent };
