@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "transport": "real MCP stdio",
+  "browser": "real Chromium/Chrome headless",
+  "tools": 8,
+  "filter": "mining",
+  "saved": [
+    "mining"
+  ],
+  "guide": "local",
+  "invalidInputRejected": true
+}

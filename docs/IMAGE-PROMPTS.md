@@ -1,16 +1,15 @@
 # Image prompts
 
-Generated with the built-in image tool. Optimized WebP copies are saved in `public/images/`. These are independent concept visuals, not announced products or official product photography.
+Created with the **built-in image generation tool**, then converted to optimized WebP assets in `public/images/`. These are independent concepts, not announced products or official photographs.
 
 ## hero.webp / hero-small.webp
 
-undefined
+Use case: ads-marketing. Asset type: ultrawide cinematic website hero photograph for a Caterpillar 2028 industrial future concept. Create a photorealistic massive futuristic yellow Caterpillar autonomous electric tracked excavator in a monumental black basalt quarry at dusk. Machine is grounded and mechanically plausible, premium bevelled yellow body panels, black tracks, articulated boom and bucket, tiny cool white LED lighting strips and lidar sensors, recognizable CAT logo on side. Composition: excavator occupies RIGHT TWO THIRDS of a very wide 16:9 landscape image, its boom arches toward the right edge, dramatic low front three-quarter camera view; LEFT THIRD has atmospheric dark quarry walls, dark clear space for white website text. Rocky dark ground, sparse thin ground fog, a distant small industrial light. Moody steel blue twilight sky top, dusty bronze rim lighting on the machine, impeccable high-end industrial advertising photography, rich real textures, nuanced shadows, slight film grain, powerful and inspiring, not science fiction fantasy. No captions, no typography other than the small CAT brand on the machine, no watermarks, no fake UI, no neon glow, no buildings. Create at 2560x1440 or similar high resolution landscape.
 
 ## mining.webp / mining-small.webp
 
-undefined
+Use case: ads-marketing. Asset type: wide editorial website image for Caterpillar 2028 future concept. Photorealistic enormous yellow autonomous Caterpillar mining haul truck on a curving haul road in a majestic open-pit copper mine, wide three-quarter elevated perspective, late blue hour with warm sunrise gold on the truck and ridges. Futuristic but mechanically grounded design with sleek dark windshield, lidar sensors and small white running lights, gigantic black tires. The haul truck fills center foreground, terraced mine recedes to hazy mountains. Sophisticated dark industrial palette, real rock and dust textures, cinematic editorial photography, no humans, no neon, no holograms, no words or UI. Landscape 16:9.
 
 ## energy.webp / energy-small.webp
 
-undefined
-
+Use case: ads-marketing. Asset type: cinematic 16:9 landscape editorial image for a Caterpillar 2028 energy infrastructure concept website. Photorealistic aerial view of a pristine near-future modular power generation campus in an arid rocky landscape at blue hour, sleek industrial black and metallic silver generator enclosures with small caterpillar-yellow accent panels in precise rows at foreground, solar field in middle distance and three wind turbines on far ridgeline, cables and electrical switching structures, tasteful white LED lighting along service paths. Deep steel-blue and graphite palette, warm pale yellow horizon light, realistic believable engineering not sci-fi architecture. Beautiful wide high-end commercial photograph, soft atmospheric depth, fine detail, no labels, no text, no UI, no watermarks.

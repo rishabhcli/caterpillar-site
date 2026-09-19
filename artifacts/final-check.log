@@ -1,0 +1,108 @@
+
+> caterpillar-2028@1.0.0 check
+> npm run test && npm run build && npm run test:e2e
+
+
+> caterpillar-2028@1.0.0 test
+> vitest run tests --exclude '**/e2e.spec.ts'
+
+
+ RUN  v4.1.11 /Users/m3-max/Documents/GitHub/caterpillar-site
+
+
+ Test Files  3 passed (3)
+      Tests  19 passed (19)
+   Start at  19:15:50
+   Duration  190ms (transform 89ms, setup 0ms, import 115ms, tests 97ms, environment 0ms)
+
+
+> caterpillar-2028@1.0.0 build
+> tsc -b && vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+node_modules/zod/v4/core/regexes.js (74:0): A comment
+
+"/** Anchors a pattern source. The interpolation lives here rather than at the call site because
+ * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it
+ * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
+
+in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/zod/v4/core/util.js (400:0): A comment
+
+"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle."
+
+in "node_modules/zod/v4/core/util.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+✓ 1846 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                      0.75 kB │ gzip:   0.47 kB
+dist/assets/ibm-plex-mono-vietnamese-400-normal-DDuiU_S-.woff        5.62 kB
+dist/assets/ibm-plex-mono-cyrillic-ext-400-normal-DMdlQ8Kv.woff      5.82 kB
+dist/assets/ibm-plex-mono-vietnamese-400-normal-BulugwFq.woff2       5.87 kB
+dist/assets/barlow-condensed-vietnamese-500-normal-CsrJDWc5.woff     6.04 kB
+dist/assets/barlow-condensed-vietnamese-600-normal-CNlPk46_.woff     6.08 kB
+dist/assets/barlow-condensed-vietnamese-700-normal-DhIzd8Tb.woff     6.10 kB
+dist/assets/ibm-plex-mono-cyrillic-ext-400-normal-xuaO2J-f.woff2     6.91 kB
+dist/assets/ibm-plex-mono-cyrillic-400-normal-CEL4l2ZJ.woff          7.20 kB
+dist/assets/barlow-condensed-vietnamese-500-normal-DjeaNLFD.woff2    7.52 kB
+dist/assets/barlow-condensed-vietnamese-700-normal-DYeBwlKR.woff2    7.64 kB
+dist/assets/barlow-condensed-vietnamese-600-normal-A5AYRdjN.woff2    7.70 kB
+dist/assets/ibm-plex-mono-cyrillic-400-normal-BSMlKf0J.woff2         8.36 kB
+dist/assets/manrope-vietnamese-wght-normal-usUDDRr7.woff2            8.52 kB
+dist/assets/manrope-greek-wght-normal-DL7QRZyv.woff2                 9.44 kB
+dist/assets/ibm-plex-mono-latin-ext-400-normal-D3D2R8hC.woff        11.77 kB
+dist/assets/barlow-condensed-latin-ext-500-normal-B1RE8WP7.woff     11.86 kB
+dist/assets/barlow-condensed-latin-ext-600-normal-Clv9cIcR.woff     11.97 kB
+dist/assets/barlow-condensed-latin-ext-700-normal-BIHFfxf0.woff     11.99 kB
+dist/assets/ibm-plex-mono-latin-400-normal-CvHOgSBP.woff            13.14 kB
+dist/assets/ibm-plex-mono-latin-ext-400-normal-BmRBH3aV.woff2       13.35 kB
+dist/assets/barlow-condensed-latin-ext-500-normal-yA5ONLQ9.woff2    14.18 kB
+dist/assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2             14.50 kB
+dist/assets/barlow-condensed-latin-ext-600-normal-18ESti3H.woff2    14.52 kB
+dist/assets/barlow-condensed-latin-ext-700-normal-CwuXbfVR.woff2    14.64 kB
+dist/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2           14.71 kB
+dist/assets/manrope-latin-ext-wght-normal-Ch3YOpNY.woff2            15.12 kB
+dist/assets/barlow-condensed-latin-500-normal-HIEiP5Ov.woff         18.60 kB
+dist/assets/barlow-condensed-latin-700-normal-Dmwat-ge.woff         18.82 kB
+dist/assets/barlow-condensed-latin-600-normal-BFJEwTuo.woff         18.89 kB
+dist/assets/barlow-condensed-latin-500-normal-BgYH2mbd.woff2        21.42 kB
+dist/assets/barlow-condensed-latin-600-normal-DepVgxBB.woff2        22.31 kB
+dist/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2        22.44 kB
+dist/assets/manrope-latin-wght-normal-DHIcAJRg.woff2                24.84 kB
+dist/knowledge.json                                                 27.98 kB │ gzip:   4.80 kB
+dist/assets/index-8AsAIhK8.css                                      54.37 kB │ gzip:  13.99 kB
+dist/assets/index-95XyD9QS.js                                      391.09 kB │ gzip: 116.15 kB
+✓ built in 1.01s
+
+> caterpillar-2028@1.0.0 test:e2e
+> playwright test
+
+
+Running 9 tests using 7 workers
+
+(node:35167) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35165) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35169) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35166) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35170) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e.spec.ts:94:1 › native WebMCP registration contract delegates to the same tools (emulated API) (1.5s)
+  ✓  5 [chromium] › tests/e2e.spec.ts:9:1 › industry filters and scene controls update visible content (1.7s)
+  ✓  7 [chromium] › tests/e2e.spec.ts:65:1 › browser agent and human controls use the same visible state (1.6s)
+  ✓  2 [chromium] › tests/e2e.spec.ts:53:1 › guide gives locally sourced answers without pretending to be live AI (1.8s)
+  ✓  6 [chromium] › tests/e2e.spec.ts:35:1 › collection persists, exports real JSON, and can be removed (1.8s)
+  ✓  4 [chromium] › tests/e2e.spec.ts:79:1 › agent rejects invalid tools and arguments without changing state (1.7s)
+  ✓  3 [chromium] › tests/e2e.spec.ts:22:1 › search opens source-backed details and handles no matches (1.9s)
+  ✓  9 [chromium] › tests/e2e.spec.ts:130:1 › mobile is overflow-free and supports navigation, guide and agent access (1.2s)
+  ✓  8 [chromium] › tests/e2e.spec.ts:113:1 › desktop renders loaded images, has no page errors or horizontal overflow (1.6s)
+
+  9 passed (4.1s)

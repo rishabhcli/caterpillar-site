@@ -82,6 +82,7 @@ export function createAssistantMiddleware({ content, env = process.env, fetchImp
     }
     const sources = [...new Set(body.sourceIds)].map(id => sourceMap.get(id)).map(({ id, title, summary, url }) => ({ id, title, summary, url }));
     if (!sources.length) return json(res, 422, { error: 'No matching site sources. Use the local guide.' });
+    if (inFlight >= 4) return json(res, 429, { error: 'The guide is busy. Please try again shortly.' });
     inFlight++;
     try {
       const upstream = await fetchImpl(ENDPOINT, {

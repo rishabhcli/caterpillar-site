@@ -9,3 +9,4 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.hero-image{transform:none}.toast{transition:none}.modal[open]{animation:none}}
 /* Verified AA contrast refinements. */
 .innovation-tabs>button>span{color:#929e7f}.company-top>.mono,.purpose-grid>div>span{color:#586448}.company-main>div>p,.purpose-grid p{color:#58634d}
+.main-nav .mobile-nav-collection{display:none}@media(max-width:760px){.main-nav.mobile-open .mobile-nav-collection{display:flex}}
