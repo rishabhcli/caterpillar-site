@@ -1,4 +1,4 @@
-import directory from './directory.json';
+import directory from './directory.json' with { type: 'json' };
 import { searchCorpus, searchScored } from '../shared/search.mjs';
 
 export type Content = { id: string; title: string; category: string; summary: string; url: string; keywords: string; image?: string; date?: string };

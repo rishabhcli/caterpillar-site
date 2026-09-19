@@ -1,7 +1,7 @@
 /** Vercel Function for GET /api/assistant/status. Reports configuration only; it never validates credentials. */
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { content } from '../../src/content';
-// @ts-expect-error Server module is intentionally plain JavaScript.
+import { content } from '../../src/content.js';
+// Server module is intentionally plain JavaScript.
 import { createAssistantMiddleware } from '../../server/assistant.mjs';
 
 const assistant = createAssistantMiddleware({ content, hosted: true });

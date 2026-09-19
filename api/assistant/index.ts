@@ -1,7 +1,7 @@
 /** Vercel Function for POST /api/assistant. Mounts the same middleware as the dev, preview and Node servers. */
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { content } from '../../src/content';
-// @ts-expect-error Server module is intentionally plain JavaScript.
+import { content } from '../../src/content.js';
+// Server module is intentionally plain JavaScript.
 import { createAssistantMiddleware } from '../../server/assistant.mjs';
 
 const assistant = createAssistantMiddleware({ content, hosted: true });
