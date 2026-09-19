@@ -1,0 +1,47 @@
+import directory from './directory.json';
+
+export type Content = { id: string; title: string; category: string; summary: string; url: string; keywords: string; image?: string; date?: string };
+const company = 'https://www.caterpillar.com/en/';
+export const sources = {
+  home: `${company}html`.replace('/en/html', '/en.html'),
+  industries: `${company}company/about-caterpillar/industries.html`,
+  innovation: `${company}company/about-caterpillar/innovation.html`,
+  sustainability: `${company}company/sustainability.html`,
+};
+export const industries: (Content & { label: string; number: string; tags: string[] })[] = [
+  { id: 'construction', title: 'Build a world that moves us.', label: 'Construction', number: '01', category: 'Industries', summary: 'From homes and roads to essential infrastructure, Cat equipment, technology, and dealer support help construction customers get the job done.', url: 'https://www.cat.com/en_US/by-industry/construction.html', image: '/images/hero-small.webp', keywords: 'construction excavator equipment machinery infrastructure building road forestry agriculture paving', tags: ['Earthmoving', 'Infrastructure', 'Equipment'] },
+  { id: 'mining', title: 'Go deeper. Think bigger.', label: 'Mining', number: '02', category: 'Industries', summary: 'Surface and underground mining solutions combine equipment, autonomous capabilities, and support for the minerals our world depends on.', url: 'https://www.cat.com/en_US/by-industry/mining.html', image: '/images/mining-small.webp', keywords: 'mining autonomous haul truck minerals copper mine aggregates quarry', tags: ['Surface & underground', 'Autonomy', 'Technology'] },
+  { id: 'energy', title: 'Power the possibilities.', label: 'Energy & transportation', number: '03', category: 'Industries', summary: 'Engines, turbines, power generation, marine, oil and gas, and rail solutions keep communities connected and essential industries moving.', url: sources.industries, image: '/images/energy-small.webp', keywords: 'energy power generation turbine engine marine oil gas rail transportation electricity solar', tags: ['Power generation', 'Marine & rail', 'Oil & gas'] },
+];
+export const stories: Content[] = [
+  { id: 'autonomous-hauling', title: 'The next chapter in autonomous hauling.', category: 'Autonomy', summary: 'After successful autonomous operations at Bull Run Quarry, Luck Stone and Caterpillar are expanding the technology to two more Virginia locations.', date: 'September 15, 2026', image: '/images/mining-small.webp', url: `${company}news/corporate-press-releases/h/luck-stone-builds-on-autonomous-hauling-success-with-caterpillar.html`, keywords: 'mining autonomy autonomous hauling luck stone trucks quarry' },
+  { id: 'field-ai', title: 'Artificial intelligence. Real-world impact.', category: 'Technology', summary: 'Caterpillar and FieldAI are collaborating on autonomy, robotics, and digital twins for industrial operations.', date: 'September 2, 2026', image: '/images/robotics.webp', url: `${company}news/corporate-press-releases/h/caterpillar-and-fieldai-advance-ai-powered-industrial-innovation.html`, keywords: 'AI artificial intelligence FieldAI robot robotics autonomy digital twins technology' },
+  { id: 'workforce', title: 'Investing in the people who build tomorrow.', category: 'Our people', summary: 'Caterpillar has expanded its workforce initiative to Arkansas, supporting the skills needed for industrial careers.', date: 'August 17, 2026', image: '/images/people.webp', url: `${company}news/corporate-press-releases/h/arkansas-workforce-investment.html`, keywords: 'people jobs careers training workforce arkansas manufacturing skills education' },
+];
+export const featured: Content[] = [
+  { id: 'company', title: 'About Caterpillar', category: 'Company', summary: 'Caterpillar makes construction and mining equipment, engines, industrial turbines, and diesel-electric locomotives, helping customers build infrastructure and supply energy.', url: `${company}company/about-caterpillar.html`, keywords: 'about company history purpose manufacture world infrastructure 1925' },
+  { id: 'innovation', title: 'Innovation that works in the real world', category: 'Innovation', summary: 'Caterpillar develops automation, connectivity, artificial intelligence, and new equipment technologies to help customers work more safely and productively.', url: sources.innovation, keywords: 'innovation AI technology autonomous autonomy connectivity equipment research digital twins' },
+  { id: 'sustainability', title: 'Progress with a purpose', category: 'Sustainability', summary: 'Explore Caterpillar’s sustainability efforts, climate and energy resources, circular economy work, and 2030 goals. Official reports explain current targets and progress.', url: sources.sustainability, keywords: 'sustainability climate electric electrification environment circular remanufacturing carbon emissions goals 2030 report energy' },
+  { id: 'careers', title: 'Your work can shape the world', category: 'Careers', summary: 'Explore careers in engineering, digital and technology, manufacturing, and business. Search current positions and learn about life at Caterpillar on the official careers site.', url: 'https://careers.caterpillar.com/en/jobs/', keywords: 'careers jobs internship students engineer software engineering manufacturing hiring graduate work employment' },
+  { id: 'investors', title: 'Built for long-term value', category: 'Investors', summary: 'Find Caterpillar’s financial results, company reports, stock information, SEC filings, and investor presentations. Visit official investor relations for current financial information.', url: 'https://investors.caterpillar.com/overview/default.aspx', keywords: 'investors investor stocks stock earnings financial results reports shares shareholder SEC annual quarterly' },
+  { id: 'brands', title: 'One family. A world of possibilities.', category: 'Brands', summary: 'The Caterpillar portfolio includes Cat, Cat Financial, Cat Reman, Perkins, Solar Turbines, Progress Rail, and other specialist brands.', url: `${company}brands.html`, keywords: 'brands cat perkins solar turbines progress rail financial reman rentals family products' },
+  { id: 'dealers', title: 'Find your Cat dealer', category: 'Products & services', summary: 'Use the official Cat dealer locator to find local equipment, parts, service, and support. Pricing and availability are provided by authorized dealers.', url: 'https://www.cat.com/en_US/support/dealer-locator.html', keywords: 'dealer location equipment service parts quote buy pricing price near me rent support' },
+  { id: 'products', title: 'Cat products & services', category: 'Products & services', summary: 'Discover Cat equipment, engines, attachments, parts, and support. Product specifications and available configurations are on the official Cat website.', url: 'https://www.cat.com/en_US.html', keywords: 'products equipment machines machine excavators engine attachments parts services buy rent' },
+];
+const primary = [...industries, ...stories, ...featured];
+export const content: Content[] = [...primary, ...directory.filter(d => !primary.some(p => p.url === d.url))];
+const stopWords = new Set(['a','an','and','are','can','do','for','how','i','in','is','it','me','of','on','the','to','us','what','with','you','your','tell','about','show','find','caterpillar','cat','would','like','some','please']);
+export function searchContent(query: string, limit = 8): Content[] {
+  const terms = query.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(w => w.length > 1 && !stopWords.has(w));
+  if (!terms.length) return featured.slice(0, limit);
+  return content.map((item, index) => {
+    const title = item.title.toLowerCase(), text = `${item.category} ${item.summary} ${item.keywords}`.toLowerCase();
+    const score = terms.reduce((n,t) => n + (title.includes(t) ? 5 : 0) + (text.includes(t) ? 2 : 0), 0);
+    return { item, score, index };
+  }).filter(r => r.score > 0).sort((a,b) => b.score-a.score || a.index-b.index).slice(0, limit).map(r => r.item);
+}
+export function localAnswer(query: string) {
+  const matches = searchContent(query, 3);
+  if (!matches.length) return { text: 'I couldn’t find a reliable match in this site’s content. Try construction, autonomous mining, sustainability, careers, or investors. For product specifications, pricing, or current availability, use an official Cat dealer.', sources: [] as Content[], mode: 'local' as const };
+  return { text: matches.map(m => m.summary).join('\n\n'), sources: matches, mode: 'local' as const };
+}

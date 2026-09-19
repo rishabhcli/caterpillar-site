@@ -1,0 +1,698 @@
+[
+  {
+    "id": "resource-0",
+    "title": "Caterpillar News",
+    "category": "News",
+    "summary": "Explore caterpillar news and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news.html",
+    "keywords": "caterpillar news"
+  },
+  {
+    "id": "resource-1",
+    "title": "Investor Relations",
+    "category": "Investors",
+    "summary": "Explore investor relations and related resources on the official Caterpillar website.",
+    "url": "https://investors.caterpillar.com/overview/default.aspx",
+    "keywords": "investor relations"
+  },
+  {
+    "id": "resource-2",
+    "title": "Job Search",
+    "category": "Careers",
+    "summary": "Explore job search and related resources on the official Caterpillar website.",
+    "url": "https://careers.caterpillar.com/en/jobs/",
+    "keywords": "job search"
+  },
+  {
+    "id": "resource-3",
+    "title": "Merchandise",
+    "category": "Brands",
+    "summary": "Explore merchandise and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/cat/merchandise.html",
+    "keywords": "merchandise"
+  },
+  {
+    "id": "resource-4",
+    "title": "Contact Us",
+    "category": "Company",
+    "summary": "Explore contact us and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/contact.html",
+    "keywords": "contact us"
+  },
+  {
+    "id": "resource-5",
+    "title": "About Caterpillar",
+    "category": "Company",
+    "summary": "Explore about caterpillar and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar.html",
+    "keywords": "about caterpillar"
+  },
+  {
+    "id": "resource-6",
+    "title": "Mission and Purpose",
+    "category": "Company",
+    "summary": "Explore mission and purpose and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/purpose.html",
+    "keywords": "mission and purpose"
+  },
+  {
+    "id": "resource-7",
+    "title": "Strategy",
+    "category": "Company",
+    "summary": "Explore strategy and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/strategy.html",
+    "keywords": "strategy"
+  },
+  {
+    "id": "resource-8",
+    "title": "History",
+    "category": "Company",
+    "summary": "Explore history and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/history.html",
+    "keywords": "history"
+  },
+  {
+    "id": "resource-9",
+    "title": "Industries We Serve",
+    "category": "Company",
+    "summary": "Explore industries we serve and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/industries.html",
+    "keywords": "industries we serve"
+  },
+  {
+    "id": "resource-10",
+    "title": "Innovation",
+    "category": "Company",
+    "summary": "Explore innovation and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/innovation.html",
+    "keywords": "innovation"
+  },
+  {
+    "id": "resource-11",
+    "title": "Global Locations",
+    "category": "Company",
+    "summary": "Explore global locations and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/global-footprint.html",
+    "keywords": "global locations"
+  },
+  {
+    "id": "resource-12",
+    "title": "Culture",
+    "category": "Company",
+    "summary": "Explore culture and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/culture.html",
+    "keywords": "culture"
+  },
+  {
+    "id": "resource-13",
+    "title": "Code of Conduct",
+    "category": "Company",
+    "summary": "Explore code of conduct and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/about-caterpillar/code-of-conduct.html",
+    "keywords": "code of conduct"
+  },
+  {
+    "id": "resource-14",
+    "title": "Sustainability",
+    "category": "Sustainability",
+    "summary": "Explore sustainability and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability.html",
+    "keywords": "sustainability"
+  },
+  {
+    "id": "resource-15",
+    "title": "Circular Economy",
+    "category": "Sustainability",
+    "summary": "Explore circular economy and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/remanufacturing.html",
+    "keywords": "circular economy"
+  },
+  {
+    "id": "resource-16",
+    "title": "Climate & Energy",
+    "category": "Sustainability",
+    "summary": "Explore climate & energy and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/energy-climate.html",
+    "keywords": "climate & energy"
+  },
+  {
+    "id": "resource-17",
+    "title": "Operations",
+    "category": "Sustainability",
+    "summary": "Explore operations and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/operations.html",
+    "keywords": "operations"
+  },
+  {
+    "id": "resource-18",
+    "title": "Conflict Minerals",
+    "category": "Sustainability",
+    "summary": "Explore conflict minerals and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/conflict-minerals.html",
+    "keywords": "conflict minerals"
+  },
+  {
+    "id": "resource-19",
+    "title": "2030 Sustainability Goals",
+    "category": "Sustainability",
+    "summary": "Explore 2030 sustainability goals and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/2030-sustainability-goals.html",
+    "keywords": "2030 sustainability goals"
+  },
+  {
+    "id": "resource-20",
+    "title": "Sustainability in the News",
+    "category": "News",
+    "summary": "Explore sustainability in the news and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/news.html",
+    "keywords": "sustainability in the news"
+  },
+  {
+    "id": "resource-21",
+    "title": "2025 Sustainability Report",
+    "category": "Sustainability",
+    "summary": "Explore 2025 sustainability report and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/sustainability-report.html",
+    "keywords": "2025 sustainability report"
+  },
+  {
+    "id": "resource-22",
+    "title": "Caterpillar AB1305 Compliance Statement",
+    "category": "Sustainability",
+    "summary": "Explore caterpillar ab1305 compliance statement and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/sustainability/caterpillar-ab1305-compliance-statement.html",
+    "keywords": "caterpillar ab1305 compliance statement"
+  },
+  {
+    "id": "resource-23",
+    "title": "Governance",
+    "category": "Company",
+    "summary": "Explore governance and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/governance.html",
+    "keywords": "governance"
+  },
+  {
+    "id": "resource-24",
+    "title": "Officers",
+    "category": "Company",
+    "summary": "Explore officers and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/governance/officers.html",
+    "keywords": "officers"
+  },
+  {
+    "id": "resource-25",
+    "title": "Governance Highlights",
+    "category": "Company",
+    "summary": "Explore governance highlights and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/governance/highlights.html",
+    "keywords": "governance highlights"
+  },
+  {
+    "id": "resource-26",
+    "title": "Board of Directors",
+    "category": "Company",
+    "summary": "Explore board of directors and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/governance/board-of-directors.html",
+    "keywords": "board of directors"
+  },
+  {
+    "id": "resource-27",
+    "title": "Committees & Charters",
+    "category": "Company",
+    "summary": "Explore committees & charters and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/governance/committees-and-charters.html",
+    "keywords": "committees & charters"
+  },
+  {
+    "id": "resource-28",
+    "title": "Governance Documents",
+    "category": "Company",
+    "summary": "Explore governance documents and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/governance/governance-documents.html",
+    "keywords": "governance documents"
+  },
+  {
+    "id": "resource-29",
+    "title": "Political Engagement",
+    "category": "Company",
+    "summary": "Explore political engagement and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/governance/political-engagement.html",
+    "keywords": "political engagement"
+  },
+  {
+    "id": "resource-30",
+    "title": "Corporate Responsibility & Social Impact",
+    "category": "Company",
+    "summary": "Explore corporate responsibility & social impact and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/corporate-responsibility.html",
+    "keywords": "corporate responsibility & social impact"
+  },
+  {
+    "id": "resource-31",
+    "title": "Corporate Direct Giving & Social Impact",
+    "category": "Company",
+    "summary": "Explore corporate direct giving & social impact and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/corporate-responsibility/corporate-giving.html",
+    "keywords": "corporate direct giving & social impact"
+  },
+  {
+    "id": "resource-32",
+    "title": "Caterpillar Foundation",
+    "category": "Company",
+    "summary": "Explore caterpillar foundation and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/corporate-responsibility/caterpillar-foundation.html",
+    "keywords": "caterpillar foundation"
+  },
+  {
+    "id": "resource-33",
+    "title": "Visitors Center & Museum",
+    "category": "Company",
+    "summary": "Explore visitors center & museum and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/visitors-center.html",
+    "keywords": "visitors center & museum"
+  },
+  {
+    "id": "resource-34",
+    "title": "About Us",
+    "category": "Company",
+    "summary": "Explore about us and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/visitors-center/about-us.html",
+    "keywords": "about us"
+  },
+  {
+    "id": "resource-35",
+    "title": "Our Exhibits",
+    "category": "Company",
+    "summary": "Explore our exhibits and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/visitors-center/exhibits.html",
+    "keywords": "our exhibits"
+  },
+  {
+    "id": "resource-36",
+    "title": "Meeting Rooms",
+    "category": "Company",
+    "summary": "Explore meeting rooms and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/visitors-center/meetings-events.html",
+    "keywords": "meeting rooms"
+  },
+  {
+    "id": "resource-37",
+    "title": "Education",
+    "category": "Company",
+    "summary": "Explore education and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/visitors-center/resources.html",
+    "keywords": "education"
+  },
+  {
+    "id": "resource-38",
+    "title": "Contact the Caterpillar Visitors Center",
+    "category": "Company",
+    "summary": "Explore contact the caterpillar visitors center and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/visitors-center/contact-us.html",
+    "keywords": "contact the caterpillar visitors center"
+  },
+  {
+    "id": "resource-39",
+    "title": "Antique Tractor Walk",
+    "category": "Company",
+    "summary": "Explore antique tractor walk and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/visitors-center/qr-codes.html",
+    "keywords": "antique tractor walk"
+  },
+  {
+    "id": "resource-40",
+    "title": "Working Together",
+    "category": "Company",
+    "summary": "Explore working together and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/working-together.html",
+    "keywords": "working together"
+  },
+  {
+    "id": "resource-41",
+    "title": "Employee Resources",
+    "category": "Company",
+    "summary": "Explore employee resources and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/working-together/employees.html",
+    "keywords": "employee resources"
+  },
+  {
+    "id": "resource-42",
+    "title": "Retiree & Alumni Resources",
+    "category": "Company",
+    "summary": "Explore retiree & alumni resources and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/working-together/retirees-alumni.html",
+    "keywords": "retiree & alumni resources"
+  },
+  {
+    "id": "resource-43",
+    "title": "Suppliers & Potential Supplier Resources",
+    "category": "Company",
+    "summary": "Explore suppliers & potential supplier resources and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/working-together/suppliers.html",
+    "keywords": "suppliers & potential supplier resources"
+  },
+  {
+    "id": "resource-44",
+    "title": "Sponsorships",
+    "category": "Company",
+    "summary": "Explore sponsorships and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/working-together/sponsorships.html",
+    "keywords": "sponsorships"
+  },
+  {
+    "id": "resource-45",
+    "title": "STEM at Caterpillar",
+    "category": "Company",
+    "summary": "Explore stem at caterpillar and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/company/working-together/stem.html",
+    "keywords": "stem at caterpillar"
+  },
+  {
+    "id": "resource-46",
+    "title": "Brands",
+    "category": "Brands",
+    "summary": "Explore brands and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands.html",
+    "keywords": "brands"
+  },
+  {
+    "id": "resource-47",
+    "title": "Cat",
+    "category": "Brands",
+    "summary": "Explore cat and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/cat.html",
+    "keywords": "cat"
+  },
+  {
+    "id": "resource-48",
+    "title": "Cat Financial",
+    "category": "Brands",
+    "summary": "Explore cat financial and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/cat-financial.html",
+    "keywords": "cat financial"
+  },
+  {
+    "id": "resource-49",
+    "title": "Cat Reman",
+    "category": "Brands",
+    "summary": "Explore cat reman and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/cat-reman.html",
+    "keywords": "cat reman"
+  },
+  {
+    "id": "resource-50",
+    "title": "Cat Rentals",
+    "category": "Brands",
+    "summary": "Explore cat rentals and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/cat-rental-store.html",
+    "keywords": "cat rentals"
+  },
+  {
+    "id": "resource-51",
+    "title": "Cat Lift Trucks",
+    "category": "Brands",
+    "summary": "Explore cat lift trucks and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/cat-lift-trucks.html",
+    "keywords": "cat lift trucks"
+  },
+  {
+    "id": "resource-52",
+    "title": "Anchor",
+    "category": "Brands",
+    "summary": "Explore anchor and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/anchor-coupling.html",
+    "keywords": "anchor"
+  },
+  {
+    "id": "resource-53",
+    "title": "AsiaTrak",
+    "category": "Brands",
+    "summary": "Explore asiatrak and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/asiatrak.html",
+    "keywords": "asiatrak"
+  },
+  {
+    "id": "resource-54",
+    "title": "FG Wilson",
+    "category": "Brands",
+    "summary": "Explore fg wilson and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/fg-wilson.html",
+    "keywords": "fg wilson"
+  },
+  {
+    "id": "resource-55",
+    "title": "Hindustan",
+    "category": "Brands",
+    "summary": "Explore hindustan and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/hindustan.html",
+    "keywords": "hindustan"
+  },
+  {
+    "id": "resource-56",
+    "title": "MaK",
+    "category": "Brands",
+    "summary": "Explore mak and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/mak.html",
+    "keywords": "mak"
+  },
+  {
+    "id": "resource-57",
+    "title": "MWM",
+    "category": "Brands",
+    "summary": "Explore mwm and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/mwm.html",
+    "keywords": "mwm"
+  },
+  {
+    "id": "resource-58",
+    "title": "Olympian",
+    "category": "Brands",
+    "summary": "Explore olympian and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/olympian-generators.html",
+    "keywords": "olympian"
+  },
+  {
+    "id": "resource-59",
+    "title": "Perkins",
+    "category": "Brands",
+    "summary": "Explore perkins and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/perkins.html",
+    "keywords": "perkins"
+  },
+  {
+    "id": "resource-60",
+    "title": "Progress Rail",
+    "category": "Brands",
+    "summary": "Explore progress rail and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/progress-rail.html",
+    "keywords": "progress rail"
+  },
+  {
+    "id": "resource-61",
+    "title": "SEM",
+    "category": "Brands",
+    "summary": "Explore sem and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/sem.html",
+    "keywords": "sem"
+  },
+  {
+    "id": "resource-62",
+    "title": "Solar Turbines",
+    "category": "Brands",
+    "summary": "Explore solar turbines and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/solar-turbines.html",
+    "keywords": "solar turbines"
+  },
+  {
+    "id": "resource-63",
+    "title": "SPM Oil & Gas",
+    "category": "Brands",
+    "summary": "Explore spm oil & gas and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/spm.html",
+    "keywords": "spm oil & gas"
+  },
+  {
+    "id": "resource-64",
+    "title": "Turner Powertrain Systems",
+    "category": "Brands",
+    "summary": "Explore turner powertrain systems and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/turner-powertrain-systems.html",
+    "keywords": "turner powertrain systems"
+  },
+  {
+    "id": "resource-65",
+    "title": "Cat® Products & Services",
+    "category": "Brands",
+    "summary": "Explore cat® products & services and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/brands/cat/products.html",
+    "keywords": "cat® products & services"
+  },
+  {
+    "id": "resource-66",
+    "title": "Investors",
+    "category": "Investors",
+    "summary": "Explore investors and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors.html",
+    "keywords": "investors"
+  },
+  {
+    "id": "resource-67",
+    "title": "Stock Information",
+    "category": "Investors",
+    "summary": "Explore stock information and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/stock-information.html",
+    "keywords": "stock information"
+  },
+  {
+    "id": "resource-68",
+    "title": "Financial Information",
+    "category": "Investors",
+    "summary": "Explore financial information and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/financial-information.html",
+    "keywords": "financial information"
+  },
+  {
+    "id": "resource-69",
+    "title": "Shareholder Services",
+    "category": "Investors",
+    "summary": "Explore shareholder services and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/shareholder-services.html",
+    "keywords": "shareholder services"
+  },
+  {
+    "id": "resource-70",
+    "title": "Events & Presentations",
+    "category": "Investors",
+    "summary": "Explore events & presentations and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/events-presentations.html",
+    "keywords": "events & presentations"
+  },
+  {
+    "id": "resource-71",
+    "title": "Quarterly Financial Results",
+    "category": "Investors",
+    "summary": "Explore quarterly financial results and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/quarterly-results.html",
+    "keywords": "quarterly financial results"
+  },
+  {
+    "id": "resource-72",
+    "title": "Caterpillar Reports",
+    "category": "Investors",
+    "summary": "Explore caterpillar reports and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/reports.html",
+    "keywords": "caterpillar reports"
+  },
+  {
+    "id": "resource-73",
+    "title": "SEC Filings",
+    "category": "Investors",
+    "summary": "Explore sec filings and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/sec-filings.html",
+    "keywords": "sec filings"
+  },
+  {
+    "id": "resource-74",
+    "title": "Governance",
+    "category": "Investors",
+    "summary": "Explore governance and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/investors/governance.html",
+    "keywords": "governance"
+  },
+  {
+    "id": "resource-75",
+    "title": "Feature Stories",
+    "category": "News",
+    "summary": "Explore feature stories and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news/caterpillarNews.html",
+    "keywords": "feature stories"
+  },
+  {
+    "id": "resource-76",
+    "title": "Corporate Press Releases",
+    "category": "News",
+    "summary": "Explore corporate press releases and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news/corporate-press-releases.html",
+    "keywords": "corporate press releases"
+  },
+  {
+    "id": "resource-77",
+    "title": "Media Contacts",
+    "category": "News",
+    "summary": "Explore media contacts and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news/media-contacts.html",
+    "keywords": "media contacts"
+  },
+  {
+    "id": "resource-78",
+    "title": "Media Library",
+    "category": "News",
+    "summary": "Explore media library and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news/media-library.html",
+    "keywords": "media library"
+  },
+  {
+    "id": "resource-79",
+    "title": "Social Media",
+    "category": "News",
+    "summary": "Explore social media and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news/social-media.html",
+    "keywords": "social media"
+  },
+  {
+    "id": "resource-80",
+    "title": "Frequently Asked Questions (FAQs)",
+    "category": "News",
+    "summary": "Explore frequently asked questions (faqs) and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news/caterpillar-faq.html",
+    "keywords": "frequently asked questions (faqs)"
+  },
+  {
+    "id": "resource-81",
+    "title": "Caterpillar Publications",
+    "category": "News",
+    "summary": "Explore caterpillar publications and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/news/publications.html",
+    "keywords": "caterpillar publications"
+  },
+  {
+    "id": "resource-82",
+    "title": "Careers",
+    "category": "Careers",
+    "summary": "Explore careers and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/careers.html",
+    "keywords": "careers"
+  },
+  {
+    "id": "resource-83",
+    "title": "Career Areas",
+    "category": "Careers",
+    "summary": "Explore career areas and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/careers/career-areas.html",
+    "keywords": "career areas"
+  },
+  {
+    "id": "resource-84",
+    "title": "Find Jobs",
+    "category": "Careers",
+    "summary": "Explore find jobs and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/careers/apply-now.html",
+    "keywords": "find jobs"
+  },
+  {
+    "id": "resource-85",
+    "title": "Join Talent Community",
+    "category": "Careers",
+    "summary": "Explore join talent community and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/careers/talent-community.html",
+    "keywords": "join talent community"
+  },
+  {
+    "id": "resource-86",
+    "title": "Life at Caterpillar",
+    "category": "Careers",
+    "summary": "Explore life at caterpillar and related resources on the official Caterpillar website.",
+    "url": "https://www.caterpillar.com/en/careers/meet-team-caterpillar.html",
+    "keywords": "life at caterpillar"
+  }
+]
