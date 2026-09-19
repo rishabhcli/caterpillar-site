@@ -1,4 +1,5 @@
 import directory from './directory.json';
+import { searchCorpus } from '../shared/search.mjs';
 
 export type Content = { id: string; title: string; category: string; summary: string; url: string; keywords: string; image?: string; date?: string };
 const company = 'https://www.caterpillar.com/en/';
@@ -30,16 +31,7 @@ export const featured: Content[] = [
 ];
 const primary = [...industries, ...stories, ...featured];
 export const content: Content[] = [...primary, ...directory.filter(d => !primary.some(p => p.url === d.url))];
-const stopWords = new Set(['a','an','and','are','can','do','for','how','i','in','is','it','me','of','on','the','to','us','what','with','you','your','tell','about','show','find','caterpillar','cat','would','like','some','please']);
-export function searchContent(query: string, limit = 8): Content[] {
-  const terms = query.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(w => w.length > 1 && !stopWords.has(w));
-  if (!terms.length) return featured.slice(0, limit);
-  return content.map((item, index) => {
-    const title = item.title.toLowerCase(), text = `${item.category} ${item.summary} ${item.keywords}`.toLowerCase();
-    const score = terms.reduce((n,t) => n + (title.includes(t) ? 5 : 0) + (text.includes(t) ? 2 : 0), 0);
-    return { item, score, index };
-  }).filter(r => r.score > 0).sort((a,b) => b.score-a.score || a.index-b.index).slice(0, limit).map(r => r.item);
-}
+export function searchContent(query: string, limit = 8): Content[] { return searchCorpus(content, query, limit, featured); }
 export function localAnswer(query: string) {
   const matches = searchContent(query, 3);
   if (!matches.length) return { text: 'I couldn’t find a reliable match in this site’s content. Try construction, autonomous mining, sustainability, careers, or investors. For product specifications, pricing, or current availability, use an official Cat dealer.', sources: [] as Content[], mode: 'local' as const };

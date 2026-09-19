@@ -1,0 +1,1 @@
+export declare function searchCorpus<T extends { title: string; category: string; summary: string; keywords: string }>(corpus: readonly T[], query: string, limit?: number, fallback?: readonly T[]): T[];
