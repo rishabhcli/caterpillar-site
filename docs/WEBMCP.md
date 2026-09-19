@@ -18,7 +18,7 @@ Then, from this repository in a second terminal:
 codex mcp add caterpillar-2028 -- node "$PWD/tools/mcp-server.mjs"
 ```
 
-Restart your Codex session and inspect `/mcp`. Ask: **“Use Caterpillar tools to show mining, find autonomous equipment, and save one relevant resource.”** The first tool discovery opens a visible Chromium window. Keep that window open: it is the shared human/agent session. A separately opened browser tab is not automatically the same session.
+Restart your Codex session and inspect `/mcp`. Ask: **“Use Caterpillar tools to show mining, find autonomous equipment, and save one relevant resource.”** The first tool discovery opens a visible Chromium window (falling back to installed Google Chrome if the Playwright browser is unavailable). Keep that window open: it is the shared human/agent session. A separately opened browser tab is not automatically the same session.
 
 Equivalent configuration in `~/.codex/config.toml` (replace the absolute path):
 
@@ -85,3 +85,7 @@ npm run test:e2e
 ```
 
 Unit tests cover schema discovery, strict validation, shared mutations, local persistence, source retrieval, consent boundaries, native registration/cleanup and graceful fallback. Browser/MCP end-to-end evidence must be checked separately; unit tests are not proof of a connected agent session.
+
+## Verified stdio smoke test
+
+With the local server running, `node tools/mcp-smoke.mjs` connects a real MCP SDK client over stdio to the browser adapter. It verifies eight discovered tools, visible-state mining filtering, saved collection changes, sourced guide responses, and invalid argument rejection in a real headless browser. This is transport integration proof, not proof of native WebMCP support or an attached external Codex session.

@@ -9,12 +9,12 @@ npm install
 npm run dev
 ```
 
-Open **http://127.0.0.1:5173**. Node.js 22.12+ or 24 is recommended.
+Open **http://127.0.0.1:5173**. Node.js 24 is recommended (the production start command uses its environment-file support).
 
 ```sh
 npm test                 # Catalog, search and truthful local-answer tests
 npm run build            # TypeScript + production bundle
-npx playwright install chromium
+# E2E uses installed Google Chrome (channel: chrome).
 npm run test:e2e         # Real browser interactions and responsive screenshots
 npm run check            # All three verification gates
 npm run preview          # Serve the production build at http://127.0.0.1:4173
@@ -27,6 +27,17 @@ npm run preview          # Serve the production build at http://127.0.0.1:4173
 - A collection shared between people and agents, persisted in local browser storage, with JSON export. No account or remote collection database.
 - Cat Intelligence: a conversational interface that defaults to **deterministic local content retrieval**, not generative AI. Answers show their source resources. Optional live AI requires server configuration and explicit UI opt-in; without these, the complete local guide remains available.
 - Native WebMCP registration when available, plus `window.catAgent` and an included stdio MCP server for compatible agents. Agent mutations act on the same visible React state as human controls.
+
+## Optional live AI and production serving
+
+Copy `.env.example` to `.env`, set `OPENAI_API_KEY` and an explicit `OPENAI_MODEL`, then restart `npm run dev`. The guide requires the visitor to enable its live-AI checkbox before sending a question and matched public resources to OpenAI. Conversation history and the saved collection are not transmitted. Without configuration, or on a provider failure, it falls back to source-backed local retrieval. Configured availability does not validate credentials until a request is made.
+
+```sh
+npm run build
+npm start                 # Production site + optional AI at http://127.0.0.1:4173
+```
+
+See [docs/AI.md](docs/AI.md) for configuration and deployment limits. These local servers are not public-production security hardening or a managed AI service. Live provider output needs configured credentials and separate verification.
 
 ## Agent access
 

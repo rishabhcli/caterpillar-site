@@ -42,7 +42,11 @@ test('collection persists, exports real JSON, and can be removed', async ({ page
   await page.getByRole('button', { name: 'Export collection' }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toBe('caterpillar-collection.json');
-  await page.getByRole('button', { name: 'Remove Go deeper. Think bigger.', exact: true }).click();
+  const stream = await download.createReadStream();
+  let downloaded = '';
+  for await (const chunk of stream!) downloaded += chunk.toString();
+  expect(JSON.parse(downloaded).items[0].id).toBe('mining');
+  await page.getByRole('dialog').getByRole('button', { name: 'Remove Go deeper. Think bigger.', exact: true }).click();
   await expect(page.getByRole('dialog')).toContainText('0 of 12 saved resources');
 });
 
@@ -115,6 +119,8 @@ test('desktop renders loaded images, has no page errors or horizontal overflow',
   expect(await page.locator('.hero-image.active').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(1);
+  await page.evaluate(async () => { await Promise.all([...document.images].map(img => { img.loading = 'eager'; return img.decode().catch(() => {}); })); });
+  expect(await page.evaluate(() => [...document.images].filter(i => !i.complete || i.naturalWidth === 0).length)).toBe(0);
   await page.screenshot({ path: 'artifacts/desktop-home.png', fullPage: true });
   await page.getByRole('button', { name: 'Open Cat Intelligence', exact: true }).click();
   await page.screenshot({ path: 'artifacts/desktop-guide.png' });
@@ -125,6 +131,7 @@ test('mobile is overflow-free and supports navigation, guide and agent access', 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.evaluate(async () => { await document.fonts.ready; });
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(1);
+  await page.evaluate(async () => { await Promise.all([...document.images].map(img => { img.loading = 'eager'; return img.decode().catch(() => {}); })); });
   await page.screenshot({ path: 'artifacts/mobile-home.png', fullPage: true });
   await page.getByRole('button', { name: 'Open navigation', exact: true }).click();
   await page.getByRole('navigation', { name: 'Main navigation' }).getByRole('button', { name: 'Industries', exact: true }).click();

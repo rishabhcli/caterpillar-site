@@ -3,7 +3,7 @@ import directory from './directory.json';
 export type Content = { id: string; title: string; category: string; summary: string; url: string; keywords: string; image?: string; date?: string };
 const company = 'https://www.caterpillar.com/en/';
 export const sources = {
-  home: `${company}html`.replace('/en/html', '/en.html'),
+  home: 'https://www.caterpillar.com/en.html',
   industries: `${company}company/about-caterpillar/industries.html`,
   innovation: `${company}company/about-caterpillar/innovation.html`,
   sustainability: `${company}company/sustainability.html`,

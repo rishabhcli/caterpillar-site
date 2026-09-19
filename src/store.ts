@@ -47,7 +47,7 @@ export async function askGuide(query: string) {
       answer = { ...fallback, text: data.text, mode: 'ai' };
     }
   } catch { answer = { ...fallback, notice: 'Live AI is unavailable. Here are matching site resources instead.' }; }
-  finally { update({ busy: false, messages: [...state.messages, { id: Date.now()+1, role: 'assistant', ...answer }].slice(-30), lastAction: 'Guide response ready' }); }
+  finally { update({ busy: false, messages: [...state.messages, { id: Date.now()+1, role: 'assistant' as const, ...answer }].slice(-30), lastAction: 'Guide response ready' }); }
   return answer;
 }
 export const publicState = () => ({ section: state.section, industryFilter: state.filter, visibleIndustries: industries.filter(i => state.filter === 'all' || i.id === state.filter).map(i => i.id), openPanel: state.modal, shortlist: state.shortlist, assistantMode: state.aiAvailable && state.aiConsent ? 'ai' : 'local-retrieval', nativeStatus: state.agentStatus, lastAction: state.lastAction, conceptYear: 2028, contentSnapshot: '2026-09-18' });

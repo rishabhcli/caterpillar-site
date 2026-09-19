@@ -37,9 +37,9 @@ async function getPage() {
       try {
         browser = cdpURL
           ? await chromium.connectOverCDP(cdpURL.href, { timeout: 15000 })
-          : await chromium.launch({ headless });
+          : await chromium.launch({ headless }).catch(() => chromium.launch({ headless, channel: 'chrome' }));
       } catch (error) {
-        throw new Error(`Cannot open the shared browser. ${cdpURL ? 'Check CAT_CDP_URL and the browser debugging port.' : 'Run npx playwright install chromium first.'} ${error.message}`);
+        throw new Error(`Cannot open the shared browser. ${cdpURL ? 'Check CAT_CDP_URL and the browser debugging port.' : 'Install Google Chrome or run npx playwright install chromium first.'} ${error.message}`);
       }
     }
     const existing = browser.contexts().flatMap(context => context.pages()).filter(candidate => correctOrigin(candidate.url()));
