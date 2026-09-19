@@ -2,20 +2,24 @@
 const ENDPOINT = 'https://api.openai.com/v1/responses';
 const MAX_BODY = 16_384;
 const WINDOW_MS = 60_000;
+const LOOPBACK = ['localhost', '127.0.0.1', '[::1]'];
 
 function json(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
   res.end(JSON.stringify(data));
 }
 
-function sameOrigin(req) {
+/** Default profile: loopback hosts over http. `hosted` profile: a public https deployment, same-origin only. */
+function sameOrigin(req, hosted, allowedHosts) {
   try {
     const host = new URL(`http://${req.headers.host}`);
-    if (!['localhost', '127.0.0.1', '[::1]'].includes(host.hostname)) return false;
+    const permitted = allowedHosts.length ? allowedHosts : hosted ? null : LOOPBACK;
+    if (permitted && !permitted.includes(host.hostname)) return false;
     if (req.headers['sec-fetch-site'] === 'cross-site') return false;
-    if (!req.headers.origin) return true; // Local non-browser clients; no CORS is enabled.
+    // Anyone can reach a hosted deployment, so it requires a browser same-origin signal; loopback also serves local non-browser clients.
+    if (!req.headers.origin) return hosted ? req.headers['sec-fetch-site'] === 'same-origin' : true;
     const origin = new URL(req.headers.origin);
-    return origin.protocol === 'http:' && origin.host === host.host;
+    return origin.protocol === (hosted ? 'https:' : 'http:') && origin.host === host.host;
   } catch { return false; }
 }
 
@@ -48,15 +52,17 @@ function readBody(req) {
   });
 }
 
-export function createAssistantMiddleware({ content, env = process.env, fetchImpl = globalThis.fetch }) {
+export function createAssistantMiddleware({ content, env = process.env, fetchImpl = globalThis.fetch, hosted = false }) {
   const sourceMap = new Map(content.map(item => [item.id, item]));
+  // Optional trusted-origin pin for a hosted deployment; unset means "any host, still same-origin only".
+  const allowedHosts = (env.ASSISTANT_ALLOWED_HOSTS || '').split(',').map(host => host.trim().toLowerCase()).filter(Boolean);
   const rates = new Map();
   let inFlight = 0;
   const available = () => Boolean(env.OPENAI_API_KEY?.trim() && env.OPENAI_MODEL?.trim());
   return async function assistant(req, res, next = () => json(res, 404, { error: 'Not found' })) {
     const path = req.url?.split('?')[0];
     if (path !== '/api/assistant' && path !== '/api/assistant/status') return next();
-    if (!sameOrigin(req)) return json(res, 403, { error: 'Same-origin local requests only.' });
+    if (!sameOrigin(req, hosted, allowedHosts)) return json(res, 403, { error: 'Same-origin requests only.' });
     if (path === '/api/assistant/status') {
       if (req.method !== 'GET') return json(res, 405, { error: 'Use GET.' });
       return json(res, 200, { available: available() });
@@ -67,7 +73,8 @@ export function createAssistantMiddleware({ content, env = process.env, fetchImp
     if (Number(req.headers['content-length']) > MAX_BODY) return json(res, 413, { error: 'Request is too large.' });
     const now = Date.now();
     for (const [key, entry] of rates) if (now - entry.started > WINDOW_MS) rates.delete(key);
-    const ip = req.socket.remoteAddress || 'local';
+    // Behind Vercel's proxy every socket looks the same, so the hosted profile keys the window on the forwarded client.
+    const ip = (hosted ? String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() : '') || req.socket.remoteAddress || 'local';
     const entry = rates.get(ip) || { started: now, count: 0 };
     if (++entry.count > 12 || inFlight >= 4) {
       res.setHeader('Retry-After', '60');
